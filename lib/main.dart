@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wisata_candi_putrifathonah/data/candi_data.dart';
 import 'package:wisata_candi_putrifathonah/screens/detail_screen.dart';
 
 void main() {
@@ -16,17 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: DetailScreen(),
+      home: DetailScreen(candi: candiList[0]),
     );
   }
 }
 
-class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Placeholder(
-    );
-  }
-}
