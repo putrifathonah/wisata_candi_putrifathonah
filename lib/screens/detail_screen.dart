@@ -104,6 +104,15 @@ class DetailScreen extends StatelessWidget {
                 Divider(color: Colors.deepPurple.shade100,),
                 SizedBox(height: 16,),
                 // info bawah deskripsi
+                const Text(
+                  'Deskripsi',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8.0,),
+                Text(candi.description),
               ],
             ),
           ),
