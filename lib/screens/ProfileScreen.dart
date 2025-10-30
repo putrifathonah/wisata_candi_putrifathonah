@@ -32,29 +32,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 // TODO: 2. Buat bagian ProfileHeader yang berisi gambar profil
                 Align(
                   alignment: Alignment.topCenter,
-                  child: Padding(padding: const EdgeInsets.only(top: 200 - 50),
-                  child:                 Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.deepPurple, width: 2),
-                        shape: BoxShape.circle,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 200 - 50),
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.deepPurple,
+                              width: 2,
+                            ),
+                            shape: BoxShape.circle,
+                          ),
+                          child: CircleAvatar(
+                            radius: 50,
+                            backgroundImage: AssetImage(
+                              'images/placehorder_image.png',
+                            ),
+                          ),
                         ),
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('images/placehorder_image.png'),
-                      ),
+                        if (isSignedIn)
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.camera_alt,
+                              color: Colors.deepPurple[50],
+                            ),
+                          ),
+                      ],
                     ),
-                    if(isSignedIn)
-                    IconButton(
-                      onPressed: (){},
-                       icon: Icon(Icons.camera_alt, color: Colors.deepPurple[50],
-                      ),
-                    ),
-                  ],
-                ),
-                ),
+                  ),
                 ),
 
                 // TODO: 3. Buat bagian ProfileInfor yang berisi info profil
@@ -63,21 +71,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: 4),
                 Row(
                   children: [
-                    SizedBox(width: MediaQuery.of(context).size.width/3,
-                    child: Row(
-                      children: [
-                        Icon(Icons.lock, color: Colors.amber),
-                        SizedBox(width: 8), // memberikan jarak dengan text dan text
-                        Text('Pengguna', style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold,
-                        ),),
-                      ],
-                    ),),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Row(
+                        children: [
+                          Icon(Icons.lock, color: Colors.amber),
+                          SizedBox(
+                            width: 8,
+                          ), // memberikan jarak dengan text dan text
+                          Text(
+                            'Pengguna',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     // Memasukkan nilai dari username
                     Expanded(
-                      child: Text(': $userName', style: TextStyle(
-                        fontSize: 18
-                      ),),),
+                      child: Text(
+                        ': $userName',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 4),
@@ -111,10 +129,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     // tambahkan kondisi untuk menampilkan icon edit jika isSIgnedIn bernilai true
-                    if(isSignedIn) Icon(Icons.edit),
+                    if (isSignedIn) Icon(Icons.edit),
                   ],
                 ),
                 // TODO: 4. Buat ProfileActions yang berisi TextButton sign in/out
+                // Buat jarak pembatas dengan profile info masing masing 4 dan 20
+                SizedBox(height: 4),
+                Divider(color: Colors.deepPurple[100]),
+                SizedBox(height: 20),
+                // periksa nilai isSignedIn jika true tampil  sign out dan false Sign in
+                // fungsi (){} untuk sementara dibuat anonimous function
+                isSignedIn
+                    ? TextButton(onPressed: () {}, child: Text('Sign Out'))
+                    : TextButton(onPressed: () {}, child: Text('Sign In')),
               ],
             ),
           ),
