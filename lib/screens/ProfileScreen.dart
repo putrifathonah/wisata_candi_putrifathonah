@@ -54,9 +54,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ],
                 ),
-                  ),
-                )
+                ),
+                ),
+
                 // TODO: 3. Buat bagian ProfileInfor yang berisi info profil
+                SizedBox(height: 20),
+                Divider(color: Colors.deepPurple[100]),
+                SizedBox(height: 4),
+                Row(
+                  children: [
+                    SizedBox(width: MediaQuery.of(context).size.width/3,
+                    child: Row(
+                      children: [
+                        Icon(Icons.lock, color: Colors.amber),
+                        SizedBox(width: 8), // memberikan jarak dengan text dan text
+                        Text('Pengguna', style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold,
+                        ),),
+                      ],
+                    ),),
+                    // Memasukkan nilai dari username
+                    Expanded(
+                      child: Text(': $userName', style: TextStyle(
+                        fontSize: 18
+                      ),),),
+                  ],
+                ),
+                SizedBox(height: 4),
+                Divider(color: Colors.deepPurple[100]),
+                SizedBox(height: 4),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Row(
+                        children: [
+                          Icon(Icons.person, color: Colors.blue),
+                          SizedBox(
+                            width: 8,
+                          ), // memberikan jarak dengan text dan text
+                          Text(
+                            'Nama',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Memasukkan nilai dari username
+                    Expanded(
+                      child: Text(
+                        ': $fullName',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    // tambahkan kondisi untuk menampilkan icon edit jika isSIgnedIn bernilai true
+                    if(isSignedIn) Icon(Icons.edit),
+                  ],
+                ),
                 // TODO: 4. Buat ProfileActions yang berisi TextButton sign in/out
               ],
             ),
