@@ -154,8 +154,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 // periksa nilai isSignedIn jika true tampil  sign out dan false Sign in
                 // fungsi (){} untuk sementara dibuat anonimous function
                 isSignedIn
-                    ? TextButton(onPressed: () {}, child: Text('Sign Out'))
-                    : TextButton(onPressed: () {}, child: Text('Sign In')),
+                    ? TextButton(onPressed: signOut, child: Text('Sign Out'))
+                    : TextButton(onPressed: signIn, child: Text('Sign In')),
               ],
             ),
           ),
