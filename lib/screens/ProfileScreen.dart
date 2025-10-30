@@ -14,6 +14,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String userName = '';
   int favoriteCandiCount = 0;
 
+  // TODO: 5. Implementasi fungsi sigin
+  // implemntasi menggunakan fungsi setState untuk mengasikan nilai isSignedIn
+  void signIn() {
+    setState(() {
+      isSignedIn = !isSignedIn;
+    });
+  }
+  // TODO: 6. Implementasi fungsi SignOut
+  void signOut() {
+    setState(() {
+      isSignedIn = !isSignedIn;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
