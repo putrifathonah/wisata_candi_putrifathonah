@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      // Disini tempaty menampilkan emulator nanti dia mau nampilkan bagain screen mana gitu
       home: ProfileScreen(),
+      // home: DetailScreen(candi : candiList[0]),
     );
   }
 }

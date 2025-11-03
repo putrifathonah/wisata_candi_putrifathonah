@@ -21,6 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       isSignedIn = !isSignedIn;
     });
   }
+
   // TODO: 6. Implementasi fungsi SignOut
   void signOut() {
     setState(() {
@@ -47,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 200 - 50),
+                    padding: const EdgeInsets.only(top: 200 - 50), // kenapa di kurang 50, karena 
                     child: Stack(
                       alignment: Alignment.bottomRight,
                       children: [
@@ -62,13 +63,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: CircleAvatar(
                             radius: 50,
                             backgroundImage: AssetImage(
-                              'images/placehorder_image.png',
+                              'images/placeholder_image.png',
                             ),
                           ),
                         ),
                         if (isSignedIn)
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {}, // ini untuk bisa membuat nama function bisa enter terys bisa isi dengan coding
                             icon: Icon(
                               Icons.camera_alt,
                               color: Colors.deepPurple[50],

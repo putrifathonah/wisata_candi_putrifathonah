@@ -4,7 +4,6 @@ import 'package:wisata_candi_putrifathonah/models/candi.dart';
 
 class DetailScreen extends StatelessWidget {
   final Candi candi;
-
   const DetailScreen({super.key, required this.candi});
 
   @override
@@ -13,13 +12,13 @@ class DetailScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(
+            Stack( // tambah stack pada dakam childern nanti ada dua childern image dan back custome
               children: [
                 // detail Header
-                // image utama
+                // image utama Stack utama
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: ClipRRect(
+                  child: ClipRRect( // bungkus image dengan clipRrect
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
                       candi.imageAsset,
