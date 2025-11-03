@@ -14,12 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // menghilangkan debug
+      debugShowCheckedModeBanner: false,
       title: 'Wisata Candi',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      // Disini tempaty menampilkan emulator nanti dia mau nampilkan bagain screen mana gitu
+      //ini menampilkan emulator yang mau ditampilkan
       home: ProfileScreen(),
       // home: DetailScreen(candi : candiList[0]),
     );

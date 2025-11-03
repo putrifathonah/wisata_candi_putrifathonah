@@ -152,6 +152,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),
                 SizedBox(height: 20),
+                // Ini menambahkan favorit
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Row(
+                        children: [
+                          Icon(Icons.favorite, color: Colors.red),
+                          SizedBox(
+                            width: 8,
+                          ), // memberikan jarak dengan text dan text
+                          Text(
+                            'Favorit',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Memasukkan nilai dari username
+                    Expanded(
+                      child: Text(
+                        ': $favoriteCandiCount',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
                 // periksa nilai isSignedIn jika true tampil  sign out dan false Sign in
                 // fungsi (){} untuk sementara dibuat anonimous function
                 isSignedIn
