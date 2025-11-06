@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_candi_putrifathonah/data/candi_data.dart';
 import 'package:wisata_candi_putrifathonah/screens/ProfileScreen.dart';
+import 'package:wisata_candi_putrifathonah/screens/SignInScreen.dart';
 import 'package:wisata_candi_putrifathonah/screens/detail_screen.dart';
+import 'package:wisata_candi_putrifathonah/screens/SignInScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //ini menampilkan emulator yang mau ditampilkan
-      home: ProfileScreen(),
+      // home: ProfileScreen(),
+      home: Signinscreen(),
       // home: DetailScreen(candi : candiList[0]),
     );
   }
