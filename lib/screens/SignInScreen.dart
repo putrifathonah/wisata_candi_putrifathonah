@@ -30,10 +30,12 @@ class _SigninscreenState extends State<Signinscreen> {
             padding: const EdgeInsets.all(16),
             child: Form(
                 child: Column(
+
                   // Todo : 4. Atur mainAxisAlignment dan crossAxisAligment
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+
                     // Todo: 5. Pasang TextFormField Nama Pengguna
                     TextField(
                       controller: _usernameController,
@@ -42,6 +44,7 @@ class _SigninscreenState extends State<Signinscreen> {
                         border: OutlineInputBorder(),
                       ),
                     ),
+
                     // Todo: 6. Pasang TextFormField Kata Sandi
                     SizedBox(height: 20,),
                     TextFormField(
@@ -56,11 +59,13 @@ class _SigninscreenState extends State<Signinscreen> {
                               _obscurePassword = !_obscurePassword;
                             });
                           },
-                          icon: Icon(_obscurePassword ? Icons.visibility_off
+                          icon: Icon(
+                            _obscurePassword ? Icons.visibility_off
                             : Icons.visibility),),
                       ),
                       obscureText: _obscurePassword,
                     ),
+
                     // Todo: 7. Pasang ElevatedButton Sign In
                     SizedBox(height: 20),
                     ElevatedButton(
