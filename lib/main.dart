@@ -30,11 +30,9 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        colorScheme: 
-        ColorScheme.fromSeed(seedColor: Colors.deepPurple). copyWith(
-          primary: Colors.deepPurple,
-          surface: Colors.deepPurple[50],
-        ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ).copyWith(primary: Colors.deepPurple, surface: Colors.deepPurple[50]),
         useMaterial3: true,
       ),
       //ini menampilkan emulator yang mau ditampilkan
@@ -46,4 +44,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
