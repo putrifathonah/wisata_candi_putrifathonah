@@ -5,6 +5,7 @@ import 'package:wisata_candi_putrifathonah/screens/SignInScreen.dart';
 import 'package:wisata_candi_putrifathonah/screens/detail_screen.dart';
 import 'package:wisata_candi_putrifathonah/widgets/ProfileInfoItem.dart';
 import 'package:wisata_candi_putrifathonah/screens/SignUpScreen.dart';
+import 'package:wisata_candi_putrifathonah/screens/SearchScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
       //ini menampilkan emulator yang mau ditampilkan
       // home: ProfileScreen(),
       // home: Signinscreen(),
-      home: Signupscreen(),
+      // home: Signupscreen(),
+      home: Searchscreen(),
       // home: DetailScreen(candi : candiList[0]),
     );
   }
