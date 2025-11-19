@@ -16,8 +16,8 @@ class _HomeScreenState extends State<Homescreen> {
       appBar: AppBar(title: Text('Wisata candi'),),
       // TODO: 2 Buat body dengan GridView.builder
       body: GridView.builder(
-        gridDelegate: gridDelegate,
-        itemBuilder: itemBuilder),
+          gridDelegate: gridDelegate,
+          itemBuilder: itemBuilder,),
       // TODO: 3. Buat ItemCard sebagai return value dari GridView.builder
 
     );
