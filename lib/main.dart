@@ -6,7 +6,7 @@ import 'package:wisata_candi_putrifathonah/screens/detail_screen.dart';
 import 'package:wisata_candi_putrifathonah/widgets/ProfileInfoItem.dart';
 import 'package:wisata_candi_putrifathonah/screens/SignUpScreen.dart';
 import 'package:wisata_candi_putrifathonah/screens/SearchScreen.dart';
-import 'package:wisata_candi_putrifathonah/screens/HomeScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -40,8 +40,7 @@ class MyApp extends StatelessWidget {
       // home: ProfileScreen(),
       // home: Signinscreen(),
       // home: Signupscreen(),
-      // home: Searchscreen(),
-      home: Homescreen(),
+      home: Searchscreen(),
       // home: DetailScreen(candi : candiList[0]),
     );
   }
