@@ -35,7 +35,9 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
-        ).copyWith(primary: Colors.deepPurple, surface: Colors.deepPurple[50]),
+        ).copyWith(primary: Colors.deepPurple,
+            surface: Colors.deepPurple[50]
+        ),
         useMaterial3: true,
       ),
       //ini menampilkan emulator yang mau ditampilkan
@@ -45,6 +47,12 @@ class MyApp extends StatelessWidget {
       // home: Searchscreen(),
       // home: HomeScreen(),
       // home: DetailScreen(candi : candiList[0]),
+      initialRoute: '/homeScreen',
+      routes: {
+        '/homescreen' : (context) => const HomeScreen(),
+        '/signin' : (context) =>   Signinscreen(),
+        '/signup' : (context) =>   Signupscreen(),
+      },
     );
   }
 }
@@ -60,10 +68,12 @@ class _MainScreenState extends State<MainScreen> {
   // Todo: 1. Deklaraasi Variabel
 
   int _currentIndex = 0;
-  final List <Widget>_children = [
+  final List<Widget> _children = [
     HomeScreen(),
     Searchscreen(),
     FavoriteScreen(),
+    Signupscreen(),
+    Signinscreen(),
     ProfileScreen(),
   ];
   @override
