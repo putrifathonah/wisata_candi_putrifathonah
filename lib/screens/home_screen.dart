@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_candi_putrifathonah/data/candi_data.dart';
 import 'package:wisata_candi_putrifathonah/models/candi.dart';
+import 'package:wisata_candi_putrifathonah/widgets/item_card.dart';
 
-class Homescreen extends StatefulWidget {
-  const Homescreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Homescreen> createState() => _HomescreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomescreenState extends State<Homescreen> {
+class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ToDO: 1. Buat appbar dengan judul widget candi
+      //   TODO: 1 Buat appbar dengan judul Wisata Candi
       appBar: AppBar(title: Text('Wisata Candi'),),
-
-      // TODO: 2 Buat Body dengan gridview.builder
+      //   TODO: 2 Buat body dengan GridView.builder
       body: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2
-          ),
-          padding: EdgeInsets.all(8),
-          itemCount: candiList.length,
-          itemBuilder: (context, index) {
-            Candi candi = candiList[index];
-            return ItemCard (candi: candi);
-          }
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        padding: EdgeInsets.all(8),
+        itemCount: candiList.length,
+        itemBuilder: (context, index) {
+          Candi candi = candiList[index];
+          //   TODO: 3 Buat ItemCard sebagai return value dari GridView.builder
+          return ItemCard(candi: candi);
+        },
       ),
-      // Todo: 3 Buat itemcard sebagai return value dari gridview.builder
     );
   }
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:wisata_candi_putrifathonah/data/candi_data.dart';
 import 'package:wisata_candi_putrifathonah/screens/home_screen.dart';
 import 'package:wisata_candi_putrifathonah/screens/profile_screen.dart';
-import 'package:wisata_candi_putrifathonah/screens/signIn_screen';
+import 'package:wisata_candi_putrifathonah/screens/signIn_screen.dart';
 import 'package:wisata_candi_putrifathonah/screens/detail_screen.dart';
 import 'package:wisata_candi_putrifathonah/widgets/ProfileInfoItem.dart';
 import 'package:wisata_candi_putrifathonah/screens/signUp_Screen.dart';
 import 'package:wisata_candi_putrifathonah/screens/search_screen.dart';
-
+import 'package:wisata_candi_putrifathonah/widgets/item_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       // home: Signinscreen(),
       // home: Signupscreen(),
       // home: Searchscreen(),
-      home: Homescreen(),
+      home: HomeScreen(),
       // home: DetailScreen(candi : candiList[0]),
     );
   }
