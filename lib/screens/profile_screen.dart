@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_candi_putrifathonah/widgets/ProfileInfoItem.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -11,22 +12,42 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   // TODO: 1. Deklarasi varaibel yang dibutuhkan
   bool isSignedIn = false;
-  String fullName = '';
-  String userName = '';
+  String fullName = '';// name
+  String userName = '';// username
   int favoriteCandiCount = 0;
 
   // TODO: 5. Implementasi fungsi sigin
   // implemntasi menggunakan fungsi setState untuk mengasikan nilai isSignedIn
   void signIn() {
-    setState(() {
-      isSignedIn = !isSignedIn;
-    });
+    Navigator.pushNamed(context, "/signinscreen");
   }
 
   // TODO: 6. Implementasi fungsi SignOut
-  void signOut() {
+  void signOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isSignedIn', false);
+    //await prefs.remove('username');
+    //await prefs.remove('name');
+
     setState(() {
       isSignedIn = !isSignedIn;
+      userName = '';
+      fullName = '';
+    });
+  }
+
+  void _checkSignInStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      isSignedIn = prefs.getBool("isSignedIn") ?? false;
+    });
+  }
+
+  void _identitas() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      fullName = prefs.getString("fullname") ?? "";
+      userName = prefs.getString("username") ?? "";
     });
   }
 
@@ -88,46 +109,90 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SizedBox(height: 20),
                 Divider(color: Colors.deepPurple[100]),
                 SizedBox(height: 4),
-
-                // profileinfoitem
-                ProfileInfoItem(
-                  icon: Icons.lock,
-                  label: 'Pengguna',
-                  value: userName,
-                  iconColor: Colors.amber,
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Row(
+                        children: [
+                          Icon(Icons.lock, color: Colors.amber),
+                          SizedBox(width: 8),
+                          Text(
+                            'Pengguna',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        ': $userName',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
                 ),
-
                 SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),
                 SizedBox(height: 4),
-
-                ProfileInfoItem(
-                  icon: Icons.person,
-                  label: 'Nama',
-                  value: fullName,
-                  showEditIcon: isSignedIn,
-                  onEditPressed: () {
-                    debugPrint('Icon Edit ditekan...');
-                  },
-                  iconColor: Colors.blue,
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Row(
+                        children: [
+                          Icon(Icons.person, color: Colors.blue),
+                          SizedBox(width: 8),
+                          Text(
+                            'Nama',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        ': $fullName',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
                 ),
-
-                // TODO: 4. Buat ProfileActions yang berisi TextButton sign in/out
-                // Buat jarak pembatas dengan profile info masing masing 4 dan 20
                 SizedBox(height: 4),
                 Divider(color: Colors.deepPurple[100]),
                 SizedBox(height: 4),
-
-                // Ini menambahkan favorit
-                ProfileInfoItem(
-                  icon: Icons.favorite,
-                  label: 'Favorit',
-                  value: favoriteCandiCount > 0 ? '$favoriteCandiCount' : '',
-                  iconColor: Colors.red,
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Row(
+                        children: [
+                          Icon(Icons.favorite, color: Colors.red),
+                          SizedBox(width: 8),
+                          Text(
+                            'Favorite',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        ': $favoriteCandiCount',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
                 ),
-
-                // periksa nilai isSignedIn jika true tampil  sign out dan false Sign in
-                // fungsi (){} untuk sementara dibuat anonimous function
                 isSignedIn
                     ? TextButton(onPressed: signOut, child: Text('Sign Out'))
                     : TextButton(onPressed: signIn, child: Text('Sign In')),
