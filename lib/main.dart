@@ -39,10 +39,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
+      // buat routing dalam class
       home: MainScreen(),
       initialRoute: '/',
       routes: {
-        '/homescreen': (context) => const HomeScreen(),
+        '/homescreen': (context) => const MainScreen(),
         '/signin': (context) =>  SignInScreen(),
         '/signup': (context) =>  SignUpScreen(),
       },

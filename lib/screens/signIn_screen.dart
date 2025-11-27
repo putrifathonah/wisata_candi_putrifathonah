@@ -62,7 +62,7 @@ class _SignInScreenState extends State<SignInScreen> {
             });
             // Sign in berhasil, navigasikan ke layar utama
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              Navigator.pushReplacementNamed(context, '/');
+              Navigator.pushReplacementNamed(context, '/homescreen');
             });
             print('Sign in succeeded');
           } else {
@@ -164,7 +164,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Navigator.pushNamed(context, '/mainScreen');
+                                    Navigator.pushNamed(context, '/signup');
                                   },
                               ),
                             ]))
